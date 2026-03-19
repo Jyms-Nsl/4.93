@@ -1,6 +1,11 @@
-<title>AutoHEN Installer</title>
+<title>AutoHEN Installer de HEN 3.5.0</title>
 <center>
-<h1>AutoHEN Installer (4.93 HFW)</h1>
+<h1><span style='color:black'>Auto-instalador de </span><span style='color:red'>HEN 3.5.0</span><span style='color:black'> em (HFW 4.93)</span></h1>
+<h1><span style='color:black'>AutoHEN Installer 4.93</span></h1>
+<h1><span style='color:black'>Atualizar By JymsNsl</span></h1>
+<br>
+<h2><span style='color:blue'>Graças a Coro, lmn7, Joonie, evilnat, esc0rtd3w, luan teles, habib, zecoxao, DeViL303, PSX-Place</span></h2>
+<h2><span style='color:blue'>xps3riments, aldostools e todos os equipamentos do PS3Xploit para fazer isso possível</span></h2>
 <hr>
 <div id="result"></div>
 <div id="exploit"></div>
@@ -319,8 +324,8 @@ function initROP(init)
 
 		// Must be changed depending on external stack frame (HEN only)
 		+syscall(0x32C,hen_renamedir_addr1,0x8A000000+0x1353B62,0,0,0,0,0,0) // /dev_blind/hen
-		//+syscall(0x32C,hen_renamedir_addr2,0x8a000000+0x1353B95,0,0,0,0,0,0) // /dev_blind/hen/remap
-		+syscall(0x32C,hen_renamedir_addr3,0x8A000000+0x1353B80,0,0,0,0,0,0) // /dev_blind/hen/xml
+		//+syscall(0x32C,hen_renamedir_addr2,0x8a000000+0x1353B80,0,0,0,0,0,0) // /dev_blind/hen/remap
+		+syscall(0x32C,hen_renamedir_addr3,0x8A000000+0x1353B95,0,0,0,0,0,0) // /dev_blind/hen/xml
 		//+syscall(0x32C,hen_renamedir_addr4,0x8a000000+0x1353BA8,0,0,0,0,0,0) // /dev_blind/hen/remap/xml
 
 		+stack_frame_swap(0x8a000000+sf_swap_addr)
