@@ -1,11 +1,6 @@
-<title>AutoHEN Installer de HEN 3.5.0</title>
+<title>AutoHEN Installer</title>
 <center>
-<h1><span style='color:black'>Auto-instalador de </span><span style='color:red'>HEN 3.5.0</span><span style='color:black'> em (HFW 4.93)</span></h1>
-<h1><span style='color:black'>AutoHEN Installer 4.93</span></h1>
-<h1><span style='color:black'>Atualizar By JymsNsl</span></h1>
-<br>
-<h2><span style='color:blue'>Graças a Coro, lmn7, Joonie, evilnat, esc0rtd3w, luan teles, habib, zecoxao, DeViL303, PSX-Place</span></h2>
-<h2><span style='color:blue'>xps3riments, aldostools e todos os equipamentos do PS3Xploit para fazer isso possível</span></h2>
+<h1>AutoHEN Installer (4.93 HFW)</h1>
 <hr>
 <div id="result"></div>
 <div id="exploit"></div>
@@ -323,10 +318,10 @@ function initROP(init)
 		+syscall(0x32E,base_file_addr,0,0,0,0,0,0,0)
 
 		// Must be changed depending on external stack frame (HEN only)
-		+syscall(0x32C,hen_renamedir_addr1,0x8a000000+0x1353B62,0,0,0,0,0,0) // /dev_blind/hen
-		+syscall(0x32C,hen_renamedir_addr2,0x8a000000+0x1353B95,0,0,0,0,0,0) // /dev_blind/hen/xml
-		+syscall(0x32C,hen_renamedir_addr3,0x8a000000+0x1353B80,0,0,0,0,0,0) // /dev_blind/hen/remap
-		+syscall(0x32C,hen_renamedir_addr4,0x8a000000+0x1353BA8,0,0,0,0,0,0) // /dev_blind/hen/remap/xml
+		+syscall(0x32C,hen_renamedir_addr1,0x8A000000+0x1353B62,0,0,0,0,0,0) // /dev_blind/hen
+		//+syscall(0x32C,hen_renamedir_addr2,0x8a000000+0x1353B95,0,0,0,0,0,0) // /dev_blind/hen/remap
+		+syscall(0x32C,hen_renamedir_addr3,0x8A000000+0x1353B80,0,0,0,0,0,0) // /dev_blind/hen/xml
+		//+syscall(0x32C,hen_renamedir_addr4,0x8a000000+0x1353BA8,0,0,0,0,0,0) // /dev_blind/hen/remap/xml
 
 		+stack_frame_swap(0x8a000000+sf_swap_addr)
 		+stack_frame_exit();
@@ -387,7 +382,7 @@ function listener()
 	var myListener = function ()
 	{
 		document.removeEventListener('mousemove', myListener, false);
-		showMsg('<h2>Instalando o HEN, aguarde...</h2>');
+		showMsg('<h2>Installing HEN, please wait...</h2>');
 		triggerX();
 	};
 	document.addEventListener('mousemove', myListener, false);
@@ -395,14 +390,14 @@ function listener()
 function triggerX()
 {
 	setTimeout(trigger,50,jump_1_addr);
-	setTimeout(showMsg,2000,"<h2><span style='color:red'>Não foi possível carregar o arquivo de instalação. Feche o navegador e tente novamente.</span></h2>");
+	setTimeout(showMsg,2000,"<h2><span style='color:red'>Failed to load setup file. Close the browser and try again.</span></h2>");
 	t_out=0;
 	total_loops=0;
 }
 function HFWmsg()
 {
-	showMsg("<h2><span style='color:red'>Você precisa instalar o Hybrid Firmware (HFW) 4.93 antes de instalar o HEN!</h2></span>");
+	showMsg("<h2><span style='color:red'>You must install Hybrid Firmware (HFW) 4.93 before installing HEN!</h2></span>");
 	throw new Error('');
 }
-if(fwv=="4.92"){initROP(true)}else{HFWmsg()}
+if(fwv=="4.93"){initROP(true)}else{HFWmsg()}
 </script>
