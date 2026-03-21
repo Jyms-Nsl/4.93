@@ -864,12 +864,12 @@ var toc_addr_492 = 0x6F5558;
 var default_vsh_pub_toc_492=0x6ED5AC;
 var vsh_opd_patch_492=0x96D5C;
 var vsh_opd_addr_492=0x6EBB70;
-var vsh_toc_addr_screenshot_492=0x72091C;// Updated From 4.91
-var vsh_ps3hen_key_toc_492=0x707B0C;// Updated From 4.91
+var vsh_toc_addr_screenshot_492=0x72082C;// Updated From 4.83/4.84/4.85
+var vsh_ps3hen_key_toc_492=0x707A1C;// Updated From 4.83/4.84/4.85
 var toc_entry1_addr_492=0x6DA3D0;
-var toc_entry2_addr_492=0x725DD8;//idps Updated From 4.91
+var toc_entry2_addr_492=0x725CE8;//idps Updated From 4.83/4.84/4.85 Double-check 4.92
 var toc_entry3_addr_492=0x6DA3C8;
-var toc_entry4_addr_492=0x7400F0;// Updated From 4.91
+var toc_entry4_addr_492=0x740000;
 var toc_entry5_addr_492=0x6EB6C8;
 var toc_entry6_addr_492=0x0;
 var gadget1_addr_492=0x097604;
@@ -911,12 +911,12 @@ var toc_addr_493 = 0x6F5558;
 var default_vsh_pub_toc_493=0x6ED5AC;
 var vsh_opd_patch_493=0x96D5C;
 var vsh_opd_addr_493=0x6EBB70;
-var vsh_toc_addr_screenshot_493=0x72091C;// Updated From 4.91
-var vsh_ps3hen_key_toc_493=0x707B0C;// Updated From 4.91
+var vsh_toc_addr_screenshot_493=0x72082C;// Updated From 4.83/4.84/4.85
+var vsh_ps3hen_key_toc_493=0x707A1C;// Updated From 4.83/4.84/4.85
 var toc_entry1_addr_493=0x6DA3D0;
-var toc_entry2_addr_493=0x725DD8;//idps Updated From 4.91
+var toc_entry2_addr_493=0x725CE8;//idps Updated From 4.83/4.84/4.85 Double-check 4.93
 var toc_entry3_addr_493=0x6DA3C8;
-var toc_entry4_addr_493=0x7400F0;// Updated From 4.91
+var toc_entry4_addr_493=0x740000;
 var toc_entry5_addr_493=0x6EB6C8;
 var toc_entry6_addr_493=0x0;
 var gadget1_addr_493=0x097604;
@@ -2482,7 +2482,7 @@ function dex()
 			//loadcex_492();
 			//disable_trigger();
 			break;
-			
+
 		case "4.93":
 			//if(document.getElementById('dex').checked===true){loaddex_493();}//alert("calling loaddex_493");
 			//else {loadcex_493();}
@@ -2913,7 +2913,7 @@ function ps3chk(){
 //					initDEX();
 					loadcex_492();
 					break;	
-					
+
 				case fwCompat[35]:
 					//alert(msgHFW);
 //					initDEX();
