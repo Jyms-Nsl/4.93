@@ -864,12 +864,12 @@ var toc_addr_492 = 0x6F5558;
 var default_vsh_pub_toc_492=0x6ED5AC;
 var vsh_opd_patch_492=0x96D5C;
 var vsh_opd_addr_492=0x6EBB70;
-var vsh_toc_addr_screenshot_492=0x72082C;// Updated From 4.83/4.84/4.85
-var vsh_ps3hen_key_toc_492=0x707A1C;// Updated From 4.83/4.84/4.85
+var vsh_toc_addr_screenshot_492=0x72091C;// Updated From 4.91
+var vsh_ps3hen_key_toc_492=0x707B0C;// Updated From 4.91
 var toc_entry1_addr_492=0x6DA3D0;
-var toc_entry2_addr_492=0x725CE8;//idps Updated From 4.83/4.84/4.85 Double-check 4.92
+var toc_entry2_addr_492=0x725DD8;//idps Updated From 4.91
 var toc_entry3_addr_492=0x6DA3C8;
-var toc_entry4_addr_492=0x740000;
+var toc_entry4_addr_492=0x7400F0;// Updated From 4.91
 var toc_entry5_addr_492=0x6EB6C8;
 var toc_entry6_addr_492=0x0;
 var gadget1_addr_492=0x097604;
@@ -911,12 +911,12 @@ var toc_addr_493 = 0x6F5558;
 var default_vsh_pub_toc_493=0x6ED5AC;
 var vsh_opd_patch_493=0x96D5C;
 var vsh_opd_addr_493=0x6EBB70;
-var vsh_toc_addr_screenshot_493=0x72082C;// Updated From 4.83/4.84/4.85
-var vsh_ps3hen_key_toc_493=0x707A1C;// Updated From 4.83/4.84/4.85
+var vsh_toc_addr_screenshot_493=0x72091C;// Updated From 4.91
+var vsh_ps3hen_key_toc_493=0x707B0C;// Updated From 4.91
 var toc_entry1_addr_493=0x6DA3D0;
-var toc_entry2_addr_493=0x725CE8;//idps Updated From 4.83/4.84/4.85 Double-check 4.93
+var toc_entry2_addr_493=0x725DD8;//idps Updated From 4.91
 var toc_entry3_addr_493=0x6DA3C8;
-var toc_entry4_addr_493=0x740000;
+var toc_entry4_addr_493=0x7400F0;// Updated From 4.91
 var toc_entry5_addr_493=0x6EB6C8;
 var toc_entry6_addr_493=0x0;
 var gadget1_addr_493=0x097604;
@@ -2475,14 +2475,14 @@ function dex()
 			//loadcex_491();
 			//disable_trigger();
 			break;
-			
+		
 		case "4.92":
 			//if(document.getElementById('dex').checked===true){loaddex_492();}//alert("calling loaddex_492");
 			//else {loadcex_492();}
 			//loadcex_492();
 			//disable_trigger();
 			break;
-
+		
 		case "4.93":
 			//if(document.getElementById('dex').checked===true){loaddex_493();}//alert("calling loaddex_493");
 			//else {loadcex_493();}
@@ -2507,6 +2507,42 @@ function showResult(str)
 {
 	setInnerHTML(document.getElementById('result'),str);
 }
+function findJsVariableOffset(name, exploit_data, base, size) {
+  readMemory(base, size);
+  var dat = document.getElementById('exploit').style.src.substr(6, size);
+  var exploit_addr = -1;  // Use -1 to indicate not found
+
+  var k = dat.indexOf(exploit_data);
+  if (k !== -1) {
+    exploit_addr = base + k * 2 + 4;
+    if (offset_array.indexOf(exploit_addr) === -1) {
+      offset_array.push(exploit_addr);
+      logAdd("Found " + name + " at: 0x" + exploit_addr.toString(16) + br + exploit_data.toAscii(true));
+    } else {
+      logAdd("Offset already used for " + name);
+      return -1;
+    }
+  } else {
+    logAdd("The string variable named " + name + " could not be located in range 0x" + base.toString(16) + " - 0x" + (base + size).toString(16));
+  }
+  return exploit_addr;
+}
+/*
+function findJsVariableOffset(name, exploit_data, base, size) {
+  readMemory(base, size);
+  var dat = document.getElementById('exploit').style.src.substr(6, size);
+  var exploit_addr = 0;
+  
+  var k = dat.indexOf(exploit_data);
+  if (k !== -1) {
+    exploit_addr = base + k * 2 + 4;
+    logAdd("Found " + name + " at: 0x" + exploit_addr.toString(16) + br + exploit_data.toAscii(true));
+  }
+  logAdd("The string variable named " + name + " could not be located in range 0x" + base.toString(16) + " - 0x" + (base + size).toString(16));
+  return exploit_addr;
+}
+*/
+/*
 function findJsVariableOffset(name,exploit_data,base,size)
 {
 	readMemory(base,size);
@@ -2549,6 +2585,7 @@ function findJsVariableOffset(name,exploit_data,base,size)
 	logAdd("The string variable named "+name+" could not be located in range 0x"+base.toString(16)+" - 0x"+end_range.toString(16));
 	return 0;
 }
+*/
 //########################## ROP Framework functions by bguerville(currently under development) #########################
 function copy_file_overwrite(frm,to,fd_frm,fd_to,buf,rlen,wlen,stat,nl,st_size)
 {
@@ -2912,8 +2949,8 @@ function ps3chk(){
 					//alert(msgHFW);
 //					initDEX();
 					loadcex_492();
-					break;	
-
+					break;
+					
 				case fwCompat[35]:
 					//alert(msgHFW);
 //					initDEX();
