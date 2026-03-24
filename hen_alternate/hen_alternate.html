@@ -145,10 +145,10 @@ function initROP(init)
 function triggerX()
 {
 		clearLogEntry();
-		showResult(hr+"<h2 style='color:#00aaff'>Installing HEN...</h2>");
+		showResult(hr+"<h2 style='color:#0057E3'>Installing HEN...</h2>");
 		disable_all();
 		setTimeout(trigger,1000,jump_1_addr);
-		setTimeout(rop_exit_hen,5000,hr+"<h2 style='color:#4CAF50'>HEN is successfully installed</h2>","<h2 style='color:#ff4444'>HEN Failure! Restart PS3 and retry!</h2>");
+		setTimeout(rop_exit_hen,5000,hr+"<h2 style='color:#2DCA38'>HEN is successfully installed</h2>","<h2 style='color:#FF4444'>HEN Failure! Restart PS3 and retry!</h2>");
 		cleanGUI();
 }
 </script>
@@ -177,11 +177,14 @@ function triggerX()
     </div>
     
 	<p><button id="btnReset" type="button" onclick="disable_trigger();"><b><span style='color:#f0f0f0;'>Reset</button></span></p>
+	
     <div id="result" style="color:#CC2010"></div><br>
+	
     <div id="log"></div>
 	<div id="exploit"></div>
 	<div id="trigger"></div>
 	<div id="footer"></div>
+	
 	<script>
 		writeEnvInfo();
 		ps3chk();
